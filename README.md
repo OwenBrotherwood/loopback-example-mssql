@@ -1,6 +1,6 @@
 #loopback-example-mssql
 
-Basic instructions
+Basic instructions:
 
 ```
 git clone https://github.com/strongloop/loopback-example-mssql.git
