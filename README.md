@@ -1,6 +1,11 @@
 #loopback-example-mssql
 
-Basic instructions:
+**Prerequisites**:
+
+ - Follow [Getting started with LoopBack](http://docs.strongloop.com/display/LB/Getting+started+with+LoopBack).
+ - Understand [LoopBack models](http://docs.strongloop.com/display/LB/Defining+models).
+
+**Quick start**:
 
 ```
 git clone https://github.com/strongloop/loopback-example-mssql.git
@@ -9,8 +14,7 @@ npm install
 ```
 Then run any script in `server/bin` (for example `node server/bin/discover-schema.js`),
 
-- [Prerequisites](#prerequisites)
-- [Procedure](#procedure)
+General procedure:
   - [1. Create the application](#1-create-the-application)
   - [2. Install the connector](#2-install-the-connector)
   - [3. Configure the datasource](#3-configure-the-datasource)
@@ -19,17 +23,6 @@ Then run any script in `server/bin` (for example `node server/bin/discover-schem
   - [6. Add a script to discover a schema](#6-add-a-script-to-discover-a-schema)
   - [7. Add a script to discover and build models](#7-add-a-script-to-discover-and-build-models)
   - [8. Conclusion](#8-conclusion)
-
-##Prerequisites
-
-###Tutorials
-
-- [Getting started with LoopBack](http://docs.strongloop.com/display/LB/Getting+started+with+LoopBack)
-
-###Knowledge
-- [LoopBack models](http://docs.strongloop.com/display/LB/Defining+models)
-
-##Procedure
 
 ###1. Create the application
 
@@ -61,8 +54,8 @@ slc loopback:datasource accountDs
 ... # follow the prompts
 ```
 
-Add the [datasource configurations](/server/datasources.json#L9-L13) to
-[`server/datasources.json`](/server/datasources.json).
+Add the [datasource configurations](https://github.com/strongloop/loopback-example-mssql/blob/master/server/datasources.json#L9-L13) to
+[`server/datasources.json`](https://github.com/strongloop/loopback-example-mssql/blob/master/server/datasources.json).
 
 > We provide a demo server for convenience sake, but feel free to use your own database server.
 
@@ -100,22 +93,22 @@ mkdir server/bin
 
 > `bin` is a directory name commonly used for executable files on unix and unix-like systems.
 
-Create [`automigrate.js`](/server/bin/automigrate.js) inside the
-[`bin`](/server/bin) directory.
+Create [`automigrate.js`](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin/automigrate.js) inside the
+[`bin`](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin) directory.
 
-> [`datasSource.automigrate()`](/server/bin/automigrate.js) requires INSERT object, CREATE DDL, and DROP DDL rights to execute properly.
+> [`datasSource.automigrate()`](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin/automigrate.js) requires INSERT object, CREATE DDL, and DROP DDL rights to execute properly.
 
 ####Test the script
 
 > #####WARNING
-> [`dataSource.automigrate()`](/server/bin/automigrate.js#L18) creates a new table in the database if it doesn't exist. If the table already exists, it will be **DESTROYED** and **ALL** existing data will be dropped. If you want to keep the existing data, use `datasource.autoupdate()` instead.
+> [`dataSource.automigrate()`](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin/automigrate.js#L18) creates a new table in the database if it doesn't exist. If the table already exists, it will be **DESTROYED** and **ALL** existing data will be dropped. If you want to keep the existing data, use `datasource.autoupdate()` instead.
 
 ```
 node server/bin/automigrate.js
 ```
 
-This script creates [two models](/server/bin/automigrate.js#L5-L14) in the
-[specified data source](/server/bin/automigrate.js#L16).
+This script creates [two models](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin/automigrate.js#L5-L14) in the
+[specified data source](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin/automigrate.js#L16).
 
 > You can view the newly inserted data using built-in [API explorer](http://docs.strongloop.com/display/LB/Use+API+Explorer). Start the application with `slc run` and browse to [`localhost:3000/explorer`][explorer] to inspect the data.
 
@@ -123,8 +116,8 @@ This script creates [two models](/server/bin/automigrate.js#L5-L14) in the
 
 > *Discovery* is the process of reverse engineering a LoopBack model from an existing database schema.
 
-Create [`discover-schema.js`](/server/bin/discover-schema.js) inside the
-[`bin` directory](/server/bin).
+Create [`discover-schema.js`](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin/discover-schema.js) inside the
+[`bin` directory](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin).
 
 ####Test the script
 
@@ -212,8 +205,8 @@ You should see:
 
 ###7. Add a script to discover and build models
 
-Create [`discover-and-build.js`](/server/bin/discover-and-build.js) in the
-[`bin` directory](/server/bin).
+Create [`discover-and-build.js`](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin/discover-and-build.js) in the
+[`bin` directory](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin).
 
 ####Test the script
 
@@ -237,14 +230,17 @@ You should see:
 > Your `createdat` and `lastmodifiedat` dates will be different.
 
 The resulting objects are fully functional
-[LoopBack models](/server/bin/discover-and-build.js#L7) and thus contain all the
+[LoopBack models](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin/discover-and-build.js#L7) and thus contain all the
 features provided by LoopBack such as
-[`find()`](/server/bin/discover-and-build.js#L10), etc.
+[`find()`](https://github.com/strongloop/loopback-example-mssql/blob/master/server/bin/discover-and-build.js#L10), etc.
 
 ###8. Conclusion
 
-You've successfully implemented various Microsoft SQL Server database features provided by LoopBack. See the [official documentation](http://docs.strongloop.com/display/LB/Defining+models) and [loopback-connector-mssql](https://github.com/strongloop/loopback-connector-mssql) for more information.
+You've successfully implemented various Microsoft SQL Server database features provided by LoopBack.
+See the [official documentation](http://docs.strongloop.com/display/LB/Defining+models) and
+[loopback-connector-mssql](https://github.com/strongloop/loopback-connector-mssql) for more information.
 
+<div class="confluence-hide">
 ---
 
 - [Next tutorial][next-tutorial]
@@ -254,3 +250,4 @@ You've successfully implemented various Microsoft SQL Server database features p
 [explorer]: http://localhost:3000/explorer
 [localhost]: http://localhost:3000
 [next-tutorial]: https://github.com/strongloop/loopback-example-model-relations
+</div>
