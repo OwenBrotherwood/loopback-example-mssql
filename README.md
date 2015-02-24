@@ -15,6 +15,7 @@ npm install
 Then run any script in `server/bin` (for example `node server/bin/discover-schema.js`),
 
 General procedure:
+
   - [1. Create the application](#1-create-the-application)
   - [2. Install the connector](#2-install-the-connector)
   - [3. Configure the datasource](#3-configure-the-datasource)
@@ -46,6 +47,7 @@ npm install --save loopback-connector-mssql
 ###3. Configure the datasource
 
 ####Datasource information
+
 - Datasource: `accountDs`
 - Connector: `Microsoft SQL Server`
 
@@ -62,6 +64,7 @@ Add the [datasource configurations](https://github.com/strongloop/loopback-examp
 ###4. Add a model
 
 ####Model information
+
 - Name: `Account`
   - Datasource: `accountDs`
   - Base class: `PersistedModel`
