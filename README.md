@@ -14,17 +14,6 @@ npm install
 ```
 Then run any script in `server/bin` (for example `node server/bin/discover-schema.js`),
 
-General procedure:
-
- 1. [Create the application](#1-create-the-application)
- 1. [Install the connector](#2-install-the-connector)
- 1. [Configure the datasource](#3-configure-the-datasource)
- 1. [Add a model](#4-add-a-model)
- 1. [Add a script to migrate data](#5-add-a-script-to-migrate-data)
- 1. [Add a script to discover a schema](#6-add-a-script-to-discover-a-schema)
- 1. [Add a script to discover and build models](#7-add-a-script-to-discover-and-build-models)
- 1. [Conclusion](#8-conclusion)
-
 ###1. Create the application
 
 ####Application information
